@@ -35,7 +35,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Wynik: " + score);
         UIManager.Instance.UpdateScoreText(score);
     }
+    public void WinGame()
+    {
+        if (isGameOver) return;
 
-
+        isGameOver = true;
+        UIManager.Instance.ShowResult($"Wygrana! Twój wynik: {score}");
+        Debug.Log("Gracz wygrał! Wszystkie bezpieczne pola zostały odsłonięte.");
+    }
 
 }

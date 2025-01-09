@@ -17,19 +17,15 @@ public class Tile : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log($"Kliknieto pole [{row}, {column}]");
-
         if (isRevealed) return;
 
         if (isMine)
         {
-            Debug.Log("Trafiono mine!");
             RevealMine();
             GridManager.Instance.GameOver();
         }
         else
         {
-            Debug.Log("Odslonieto pole.");
             Reveal();
             GridManager.Instance.RevealTile(row, column);
         }
